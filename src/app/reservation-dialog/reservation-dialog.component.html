@@ -1,0 +1,14 @@
+<section class="p-5 min-w-[450px]">
+  <h2 class="text-lg mb-1">{{ data.appointment.persianDate }}</h2>
+  <hr class="mb-4">
+
+  <mat-radio-group [(ngModel)]="selectedTime" class="mt-4" color="primary">
+    @for(time of data.appointment.times; track $index) {
+      <div>
+        <mat-radio-button [value]="$index">{{time}}</mat-radio-button>
+      </div>
+    }
+  </mat-radio-group>
+
+  <button (click)="getTime()" [disabled]="selectedTime == -1" class="mt-2 border-none bg-cyan-300 w-full rounded text-white py-2 disabled:bg-gray-300">ثبت</button>
+</section>
